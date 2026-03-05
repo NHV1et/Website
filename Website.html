@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Personal Page</title>
+    <style>
+        body { background-color: #f0f0f0; font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+        h1 { color: #333; }
+        p { color: #666; line-height: 1.5; }
+        div { background-color: #fff; border: 1px solid #ddd; padding: 20px; margin-top: 20px; border-radius: 5px; width: 100%; box-sizing: border-box; }
+        
+        /* Style cho Form đăng nhập */
+        .login-box { background-color: #e8f0fe; border: 2px solid #4285f4; }
+        .login-box input { display: block; width: 100%; margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .login-box button { background-color: #4285f4; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; width: 100%; font-weight: bold; }
+        .login-box button:hover { background-color: #357abd; }
+
+        div.small_div { width: 32%; background-color: aliceblue; float: left; margin-right: 1%; box-sizing: border-box; min-height: 150px; }
+        .clearfix::after { content: ""; clear: both; display: table; }
+    </style>
+</head>
+<body>
+    <h1>Welcome to my website!</h1>
+    
+    <div class="login-box">
+        <h2>Member Sign In</h2>
+        <form action="https://formspree.io/f/your_formspree_id" method="POST">
+            <label>Username:</label>
+            <input type="text" name="username" placeholder="Enter your username" required>
+            
+            <label>Password:</label>
+            <input type="password" name="password" placeholder="Enter your password" required>
+            
+            <button type="submit">Sign In</button>
+        </form>
+    </div>
+
+    <div>
+        <h2>About Me</h2>
+        <p>I am a web developer with a passion for creating beautiful and functional websites.</p>
+    </div>
+
+    <div class="clearfix">
+        <div class="small_div">
+            <h3>Contact Information</h3>
+            <p>Email: example@email.com</p>
+        </div>
+
+        <div class="small_div">
+            <h2>Social Media</h2>
+            <p>Twitter: @example</p>
+        </div>
+
+        <div class="small_div">
+            <table>
+                <tr><th>Platform</th><th>Username</th></tr>
+                <tr><td>Facebook</td><td>example.fb</td></tr>
+                <tr><td>Instagram</td><td>@example.ig</td></tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
